@@ -1,7 +1,15 @@
-import cv2
+from concurrent.futures import __dir__
 
-face_data = cv2.CascadeClassifier("haarcascade_frontalface_default.xml")
-eyes_data = cv2.CascadeClassifier("haarcascade_eye.xml")
+import cv2
+from pathlib import Path
+
+faceDataPath = Path(__file__).parent.parent/"data/haarcascade_frontalface_default.xml"
+eyeDataPath = Path(__file__).parent.parent/"data/haarcascade_eye.xml"
+
+# with faceDataPath.open() as f:
+print(faceDataPath, eyeDataPath)
+face_data = cv2.CascadeClassifier(faceDataPath.open().name)
+eyes_data = cv2.CascadeClassifier(eyeDataPath.open().name)
 
 cap = cv2.VideoCapture(0)
 

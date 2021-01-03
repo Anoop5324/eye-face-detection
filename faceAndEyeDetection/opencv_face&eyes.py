@@ -1,5 +1,3 @@
-from concurrent.futures import __dir__
-
 import cv2
 from pathlib import Path
 
